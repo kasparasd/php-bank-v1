@@ -1,0 +1,51 @@
+<?php
+
+echo "seeder started\n";
+
+$accounts = [
+    'userId' => 5,
+    [
+        'id' => '1',
+        'name' => 'Johnathon',
+        'lastName' => 'Mischke',
+        'accountNumber' => 'LT23 3951 3426 9392 0092',
+        'personalCodeNumber' => '0201017204185',
+        'balance'=> 1000,
+    ],
+    [
+        'id' => '2',
+        'name' => 'Anthony',
+        'lastName' => 'Serna',
+        'accountNumber' => 'LT09 3733 2387 8039 6445',
+        'personalCodeNumber' => '0201017404181',
+        'balance'=> 1100,
+    ],
+    [
+        'id' => '3',
+        'name' => 'Erasmo',
+        'lastName' => 'Pepper',
+        'accountNumber' => 'LT00',
+        'personalCodeNumber' => '0201017340187',
+        'balance'=> 25.99,
+    ],
+    [
+        'id' => '4',
+        'name' => 'Diego',
+        'lastName' => 'Lanz',
+        'accountNumber' => 'LT33 8556 3220 7121 2756',
+        'personalCodeNumber' => '0201015256088',
+        'balance'=> 50000,
+    ],
+    [
+        'id' => '5',
+        'name' => 'Zonia',
+        'lastName' => 'Block',
+        'accountNumber' => 'LT48 4819 3266 9078 4956',
+        'personalCodeNumber' => '0201017552187',
+        'balance'=> 4999.79,
+    ],
+
+];
+
+file_put_contents(__DIR__ . '/../data/accounts.ser', serialize($accounts));
+echo "seeder finished\n";

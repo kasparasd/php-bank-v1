@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(./bg.svg) top;
+  background-size: cover;
+  background-color: #161616;
+  /* background-color: rgb(197, 197, 231); */
+  color: white;
+  
+}
+.accounts-form-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-container{
+ display: flex;
+ justify-content: center;
+}
+
+table {
+  margin-top: 30px;
+  border-collapse:collapse
+}
+
+th, td {
+  padding: 10px 5px;
+}
+
+.line-border {
+  border-bottom: 1px red solid;
+}
+
+tr {
+  border-bottom: 1px solid rgba(220, 20, 60, 0);
+}
+
+tr:hover{
+  border-bottom: 1px solid crimson;
+}
+
+tr:first-child {
+  border-bottom: 1px solid rgba(220, 20, 60, 0.356);
+}
+
+.create-new-account-form{
+  margin-left: 25%;
+  margin-right:25%;
+  width: 50%;
+}
+
+.create-new-account-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
