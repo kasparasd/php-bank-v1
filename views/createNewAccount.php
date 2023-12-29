@@ -40,9 +40,16 @@ function generateAccountNumber($accounts)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="../styles.css"> -->
+    <script src="../app.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
+    <style>
+        .createNewAccountCloseBtn{
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: crimson;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,6 +58,28 @@ function generateAccountNumber($accounts)
         require __DIR__ . '/navBar.php';
     }
     ?>
+
+    <?php if ($_SESSION['accountCreated']) : ?>
+        <div class="col-6 accountCreatedAlert" style="margin: auto;">
+            <div class="alert alert-success alert-dismissible">
+                <button style="float: right;" class="createNewAccountCloseBtn">&times;</button>
+                <span>
+
+                    <h2>New Account created</h2>
+                    <h4>
+                        Name: <b><?= $accounts[$newestUser]['name']; ?> </b>
+                        Last Name: <b><?= $accounts[$newestUser]['lastName']; ?> </b>
+                    </h4>
+                    <h4>
+                        Account number: <b><?= $accounts[$newestUser]['accountNumber']; ?> </b>
+                    </h4>
+                </span>
+
+            </div>
+            <?php unset($_SESSION['accountCreated']); ?>
+        </div>
+        </div>
+    <?php endif ?>
 
     <div class="col-6" style="margin: auto;  padding: 2rem; border-radius: 15px; border: 1px solid black;">
         <h2 class="mb-4">Create new bank account</h2>
@@ -72,28 +101,15 @@ function generateAccountNumber($accounts)
                 <label for="bankAccountNumber">Bank account number</label>
                 <input class="form-control" readonly type="text" name="bankAccountNumber" value="<?= generateAccountNumber($accounts) ?>">
             </div>
-
             <button type="submit" class="btn btn-primary mt-4">Submit</button>
         </form>
-        <?php if ($_SESSION['accountCreated']) : ?>
-
-            <h2>New Account created</h2>
-            <h4>
-                Name: <b><?= $accounts[$newestUser]['name']; ?> </b>
-                Last Name: <b><?= $accounts[$newestUser]['lastName']; ?> </b>
-            </h4>
-            <h4>
-                Account number: <b><?= $accounts[$newestUser]['accountNumber']; ?> </b>
-            </h4>
-            <?php unset($_SESSION['accountCreated']); ?>
-        <?php endif ?>
 
         <?php
         if ($_SESSION['error']) : ?>
             <ul>
 
                 <?php foreach ($_SESSION['error'] as $errorMsg) : ?>
-                    <li><?= $errorMsg ?></li>
+                    <li style="color: red;"><?= $errorMsg ?></li>
                 <?php endforeach ?>
             </ul>
         <?php unset($_SESSION['error']);
