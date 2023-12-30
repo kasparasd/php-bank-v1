@@ -22,13 +22,11 @@ if (funds) {
   });
 }
 
-const createNewAccountCloseBtn = document.querySelector(
-  ".createNewAccountCloseBtn"
-);
-const accountCreatedAlert = document.querySelector(".accountCreatedAlert");
+const closeButton = document.querySelector(".closeBtn");
+const infoAlert = document.querySelector(".infoAlert");
 
-if (createNewAccountCloseBtn) {
-  createNewAccountCloseBtn.addEventListener("click", (e) => {
-    accountCreatedAlert.remove();
+if (closeButton) {
+  closeButton.addEventListener("click", (e) => {
+    infoAlert.remove();
   });
 }

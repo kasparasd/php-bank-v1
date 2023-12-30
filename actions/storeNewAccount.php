@@ -56,6 +56,7 @@ if ($_POST) {
         $_SESSION['accountCreated'] = $userId+1;
         header('Location: .././views/createNewAccount.php');
         exit();
+        
     }
 }
 ?>

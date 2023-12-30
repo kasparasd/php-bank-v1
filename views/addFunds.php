@@ -2,8 +2,14 @@
 session_start();
 $accounts = file_get_contents(__DIR__ . '/.././data/accounts.ser');
 $accounts = unserialize($accounts);
-$userId = array_search($_GET['id'], array_column($accounts, 'id'));
+$userId = false;
 
+foreach ($accounts as $id => $account) {
+    if($account['id']==$_GET['id']){
+        $userId=$id;
+        break;
+    }
+}
 ?>
 
 <!DOCTYPE html>

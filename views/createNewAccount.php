@@ -43,11 +43,11 @@ function generateAccountNumber($accounts)
     <script src="../app.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <style>
-        .createNewAccountCloseBtn{
+        .closeBtn {
             background: none;
             border: none;
             font-size: 20px;
-            color: crimson;
+            color: red;
         }
     </style>
 </head>
@@ -60,9 +60,9 @@ function generateAccountNumber($accounts)
     ?>
 
     <?php if ($_SESSION['accountCreated']) : ?>
-        <div class="col-6 accountCreatedAlert" style="margin: auto;">
-            <div class="alert alert-success alert-dismissible">
-                <button style="float: right;" class="createNewAccountCloseBtn">&times;</button>
+        <div class="col-6 infoAlert" style="margin: auto;">
+            <div style="background-color: rgb(0,255,0,0.6);" class="alert alert-dismissible">
+                <button style="float: right;" class="closeBtn">&times;</button>
                 <span>
 
                     <h2>New Account created</h2>

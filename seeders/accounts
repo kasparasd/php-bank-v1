@@ -24,7 +24,7 @@ $accounts = [
         'id' => '3',
         'name' => 'Erasmo',
         'lastName' => 'Pepper',
-        'accountNumber' => 'LT00',
+        'accountNumber' => 'LT23 3951 3426 9792 4478',
         'personalCodeNumber' => '0201017340187',
         'balance'=> 25.99,
     ],
