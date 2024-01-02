@@ -1,5 +1,11 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$employees = file_get_contents(__DIR__ . '/.././data/employees.ser');
+$employees = unserialize($employees);
 
+
+?>
+<!DOCTYPE html>
 <style>
     .navBar {
         color: white;
@@ -20,12 +26,12 @@
         padding: 5px;
     }
 
-    
+
     .navBar a:hover {
         border-bottom: 1px solid crimson;
-        
+
     }
-    
+
     .active {
         border-bottom: 1px solid crimson !important;
     }
@@ -38,19 +44,30 @@
 </style>
 <div class="navBar">
     <div>
-        <a href="./">UniBanca</a>
-        <a class="nav-element" href="./">Accounts</a>
-        <a class="nav-element" href="./createNewAccount.php">Create new account</a>
+        <a href="./accounts.php">UniBanca</a>
+        <?php if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) : ?>
+            <a class="nav-element" href="./accounts.php">Accounts</a>
+            <a class="nav-element" href="./createNewAccount.php">Create new account</a>
+        <?php endif ?>
     </div>
     <div>
-        <a class="nav-element" href="./login.php">Sign in</a>
-        <a class="nav-element" href="./register.php">Sign up</a>
+
+        <?php if (!isset($_SESSION['userLoggedIn']) && $_SESSION['login'] != 1) : ?>
+            <a class="nav-element" href="./login.php">Sign in</a>
+            <a class="nav-element" href="./register.php">Sign up</a>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) : ?>
+            <a class="nav-element"><?= $_SESSION['userLoggedIn']['email'] ?></a>
+            <form action="http://localhost/php-bank-v1/actions/handleLogout.php" method="post">
+                <button type="submit">Log out </button>
+            </form>
+        <?php endif; ?>
     </div>
 </div>
 <script>
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll(".nav-element").forEach(link => {
-        if(link.href === 'http://localhost'+activePage) {
+        if (link.href === 'http://localhost' + activePage) {
             link.classList.add('active');
         }
     })

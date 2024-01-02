@@ -1,7 +1,10 @@
 <?php
-// error_reporting(~0);
-// ini_set('display_errors', 1);
 session_start();
+if (!isset($_SESSION['userLoggedIn']) && $_SESSION['login'] != 1) {
+    header('Location: http://localhost/php-bank-v1/views/');
+    exit;
+}
+
 $accounts = file_get_contents(__DIR__ . '/.././data/accounts.ser');
 $accounts = unserialize($accounts);
 $newestUser = array_search($_SESSION['accountCreated'], array_column($accounts, 'id'));

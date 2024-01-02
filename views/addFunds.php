@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['userLoggedIn']) && $_SESSION['login']!=1){
+    header('Location: http://localhost/php-bank-v1/views/');
+    exit;
+  }
 $accounts = file_get_contents(__DIR__ . '/.././data/accounts.ser');
 $accounts = unserialize($accounts);
 $userId = false;
@@ -30,7 +34,7 @@ foreach ($accounts as $id => $account) {
     } ?>
 
     <?php if ($userId === false) : ?>
-        <a style="color: navy; text-decoration: none; margin-left: 70px; display:inline-block" href="./index.php">
+        <a style="color: navy; text-decoration: none; margin-left: 70px; display:inline-block" href="./accounts.php">
 
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -50,7 +54,7 @@ foreach ($accounts as $id => $account) {
             </div>
         </div>
     <?php else : ?>
-        <a style="color: navy; text-decoration: none; margin-left: 70px; display:inline-block" href="./index.php">
+        <a style="color: navy; text-decoration: none; margin-left: 70px; display:inline-block" href="./accounts.php">
 
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">

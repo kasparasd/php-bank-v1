@@ -11,13 +11,13 @@ foreach ($accounts as $id => $account) {
     }
 }
 if ($userId === false) {
-    header('Location: http://localhost/php-bank-v1/views/index.php');
+    header('Location: http://localhost/php-bank-v1/views/accounts.php');
     exit();
 }
 
 if($accounts[$userId]['balance']){
     $_SESSION['error'] = 'You can\'t delete this account. Account must be empty.';
-    header('Location: http://localhost/php-bank-v1/views/index.php');
+    header('Location: http://localhost/php-bank-v1/views/accounts.php');
     exit();
 }
 
@@ -27,4 +27,4 @@ file_put_contents(__DIR__ . '/.././data/accounts.ser', serialize($accounts));
 
 $_SESSION['success']='Account deleted';
 
-header('Location: http://localhost/php-bank-v1/views/index.php');
+header('Location: http://localhost/php-bank-v1/views/accounts.php');
