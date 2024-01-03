@@ -35,6 +35,19 @@ if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) {
         </div>
     <?php endif;
     unset($_SESSION['error']) ?>
+    <?php if ($_SESSION['success']) : ?>
+        <div class="container mt-5 infoAlert">
+            <div class="row">
+                <div class="col-12 justify-content-center">
+                    <div class="alert alert-success" role="alert">
+                        <button style="float: right;" class="closeBtn">&times;</button>
+                        <?php echo $_SESSION['success'] ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif;
+    unset($_SESSION['success']) ?>
     <section class=" bg-image">
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
             <div class="container h-100">
@@ -56,7 +69,7 @@ if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) {
                                             <label for="floatingPassword">Password</label>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-5">Sign in</button>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-5">Sign in</button>
                                         </div>
                                     </form>
                                 </main>
