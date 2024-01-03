@@ -8,9 +8,7 @@ $accounts = unserialize($accounts);
 $userId = $accounts['userId'];
 
 if ($_POST) {
-    $_SESSION['name'] = $_POST['name'];
-    $_SESSION['lastName'] = $_POST['lastName'];
-    $_SESSION['personalCodeNumber'] = $_POST['personalNumber'];
+    $_SESSION['newAccount'] = $_POST;
     $_SESSION['error'] = [];
 
     if (array_search($_POST['personalNumber'], array_column($accounts, 'personalCodeNumber'))) {
@@ -50,10 +48,7 @@ if ($_POST) {
             file_put_contents(__DIR__ . '/../data/accounts.ser', serialize($accountsAdd));
         };
         addItem($newAccount);
-        unset($_SESSION['name']);
-        unset($_SESSION['lastName']);
-        unset($_SESSION['personalCodeNumber']);
-        $_SESSION['accountCreated'] = $userId+1;
+        $_SESSION['accountCreated'] = 1;
         header('Location: .././views/createNewAccount.php');
         exit();
         

@@ -70,16 +70,15 @@ function generateAccountNumber($accounts)
 
                     <h2>New Account created</h2>
                     <h4>
-                        Name: <b><?= $accounts[$newestUser]['name']; ?> </b>
-                        Last Name: <b><?= $accounts[$newestUser]['lastName']; ?> </b>
+                        Name: <b><?= $_SESSION['newAccount']['name']; ?> </b>
+                        Last Name: <b><?= $_SESSION['newAccount']['lastName']; ?> </b>
                     </h4>
                     <h4>
-                        Account number: <b><?= $accounts[$newestUser]['accountNumber']; ?> </b>
+                        Account number: <b><?= $_SESSION['newAccount']['bankAccountNumber']; ?> </b>
                     </h4>
                 </span>
 
             </div>
-            <?php unset($_SESSION['accountCreated']); ?>
         </div>
         </div>
     <?php endif ?>
@@ -89,16 +88,16 @@ function generateAccountNumber($accounts)
         <form action="../actions/storeNewAccount.php" method="post">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input class="form-control" type="text" name="name" value="<?= $_SESSION['name'] ?>">
+                <input class="form-control" type="text" name="name" value="<?= $_SESSION['accountCreated'] == NULL ? $_SESSION['newAccount']['name'] : '' ?>">
             </div>
             <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input class="form-control" type="text" name="lastName" value="<?= $_SESSION['lastName'] ?>">
+                <input class="form-control" type="text" name="lastName" value="<?= $_SESSION['accountCreated'] == NULL ? $_SESSION['newAccount']['lastName'] : '' ?>">
             </div>
 
             <div class="form-group">
                 <label for="personalNumber">Personal code number</label>
-                <input class="form-control" type="text" name="personalNumber" value="<?= $_SESSION['personalCodeNumber'] ?>">
+                <input class="form-control" type="text" name="personalNumber" value="<?= $_SESSION['accountCreated'] == NULL ? $_SESSION['newAccount']['personalNumber'] : '' ?>">
             </div>
             <div class="form-group">
                 <label for="bankAccountNumber">Bank account number</label>
@@ -123,6 +122,5 @@ function generateAccountNumber($accounts)
 
 </html>
 <?php
-unset($_SESSION['name']);
-unset($_SESSION['lastName']);
-unset($_SESSION['personalCodeNumber']);
+unset($_SESSION['newAccount']);
+unset($_SESSION['accountCreated']);

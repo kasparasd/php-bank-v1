@@ -55,24 +55,24 @@ if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) {
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
-                                <main class="form-signin" style="margin: auto;">
 
-                                    <form action="http://localhost/php-bank-v1/actions/handleLogin.php" method="post">
-                                        <h1 class="h3 mb-3 fw-normal">SIGN IN</h1>
 
-                                        <div class="form-floating">
-                                            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                            <label for="floatingInput">Email address</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                            <label for="floatingPassword">Password</label>
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-5">Sign in</button>
-                                        </div>
-                                    </form>
-                                </main>
+                                <form action="http://localhost/php-bank-v1/actions/handleLogin.php" method="post">
+                                    <h2 class="text-uppercase text-center mb-4">SIGN IN</h2>
+
+                                    <div class="form-floating mb-2">
+                                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                    <div class="form-floating mb-2">
+                                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body mt-5">Sign in</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>

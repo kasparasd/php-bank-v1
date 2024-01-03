@@ -1,5 +1,5 @@
-<?php session_start(); 
-if (isset($_SESSION['userLoggedIn']) && $_SESSION['login']==1) {
+<?php session_start();
+if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) {
   header('Location: http://localhost/php-bank-v1/views/accounts.php');
   exit;
 }
@@ -21,6 +21,18 @@ if (isset($_SESSION['userLoggedIn']) && $_SESSION['login']==1) {
     require __DIR__ . '/navBar.php';
   }
   ?>
+
+
+  <div class="container text-center py-5 mb-4 ">
+    <div class="p-5 mb-4 lc-block">
+      <div class="lc-block mb-4">
+        <div editable="rich">
+          <h1 class="fw-bold">Please <a href="http://localhost/php-bank-v1/views/login.php">Log in</a> or <a href="http://localhost/php-bank-v1/views/register.php">Register</a></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 

@@ -53,14 +53,16 @@ $employees = unserialize($employees);
     <div>
 
         <?php if (!isset($_SESSION['userLoggedIn']) && $_SESSION['login'] != 1) : ?>
-            <a class="nav-element" href="./login.php">Sign in</a>
-            <a class="nav-element" href="./register.php">Sign up</a>
+            <a class="nav-element" href="./login.php">Log in</a>
+            <a class="nav-element" href="./register.php">Register</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['userLoggedIn']) && $_SESSION['login'] == 1) : ?>
-            <a class="nav-element"><?= $_SESSION['userLoggedIn']['email'] ?></a>
-            <form action="http://localhost/php-bank-v1/actions/handleLogout.php" method="post">
-                <button type="submit">Log out </button>
-            </form>
+            <div style="display: flex;">
+                <a class="nav-element"><?= $_SESSION['userLoggedIn']['email'] ?></a>
+                <form action="http://localhost/php-bank-v1/actions/handleLogout.php" method="post">
+                    <button type="submit" class="btn btn-outline-dark">Log out </button>
+                </form>
+            </div>
         <?php endif; ?>
     </div>
 </div>
