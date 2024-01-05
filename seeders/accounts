@@ -9,7 +9,7 @@ $accounts = [
         'name' => 'Johnathon',
         'lastName' => 'Mischke',
         'accountNumber' => 'LT23 3951 3426 9392 0092',
-        'personalCodeNumber' => '0201017204185',
+        'personalCodeNumber' => '46601019466',
         'balance'=> 1000,
     ],
     [
@@ -17,7 +17,7 @@ $accounts = [
         'name' => 'Anthony',
         'lastName' => 'Serna',
         'accountNumber' => 'LT09 3733 2387 8039 6445',
-        'personalCodeNumber' => '0201017404181',
+        'personalCodeNumber' => '61608019493',
         'balance'=> 1100,
     ],
     [
@@ -25,7 +25,7 @@ $accounts = [
         'name' => 'Erasmo',
         'lastName' => 'Pepper',
         'accountNumber' => 'LT23 3951 3426 9792 4478',
-        'personalCodeNumber' => '0201017340187',
+        'personalCodeNumber' => '61809039583',
         'balance'=> 25.99,
     ],
     [
@@ -33,7 +33,7 @@ $accounts = [
         'name' => 'Diego',
         'lastName' => 'Lanz',
         'accountNumber' => 'LT33 8556 3220 7121 2756',
-        'personalCodeNumber' => '0201015256088',
+        'personalCodeNumber' => '36110128966',
         'balance'=> 50000,
     ],
     [
@@ -41,7 +41,7 @@ $accounts = [
         'name' => 'Zonia',
         'lastName' => 'Block',
         'accountNumber' => 'LT48 4819 3266 9078 4956',
-        'personalCodeNumber' => '0201017552187',
+        'personalCodeNumber' => '46407019729',
         'balance'=> 4999.79,
     ],
 
